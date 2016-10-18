@@ -20,7 +20,7 @@
 #import <ADEPT/ADEPT.h>
 #endif
 
-#define DO_MASK_BARCODE     1
+#define DO_MASK_BARCODE     0
 #if DO_MASK_BARCODE
 #import "CHRTextFieldFormatter.h"
 #import "NYPLBarcodeTextMask.h"
@@ -175,7 +175,7 @@ static CellKind CellKindFromIndexPath(NSIndexPath *const indexPath)
                                             UIViewAutoresizingFlexibleHeight);
   self.barcodeTextField.font = [UIFont systemFontOfSize:17];
   self.barcodeTextField.placeholder = NSLocalizedString(@"Barcode", nil);
-  self.barcodeTextField.keyboardType = UIKeyboardTypeNumberPad;
+  self.barcodeTextField.keyboardType = UIKeyboardTypeDefault;
   [self.barcodeTextField
    addTarget:self
    action:@selector(textFieldsDidChange)
@@ -674,7 +674,7 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *const)challenge
        if(statusCode == 200) {
 #if defined(FEATURE_DRM_CONNECTOR)
          [[NYPLADEPT sharedInstance]
-          authorizeWithVendorID:@"NYPL"
+          authorizeWithVendorID:@"Datalogics"
           username:self.barcodeTextField.unmaskedText
           password:self.PINTextField.text
           completion:^(BOOL success, NSError *error) {

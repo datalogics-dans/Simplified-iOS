@@ -21,6 +21,7 @@ for SDK in ${SDKS[@]}; do
       ONLY_ACTIVE_ARCH=NO \
       ENABLE_BITCODE=NO \
       ARCHS="${ARCHS}" \
+      VALID_ARCHS="${ARCHS}" \
       -sdk ${SDK} \
       build
     cd "$ADOBE_RMSDK"
@@ -35,6 +36,7 @@ for SDK in ${SDKS[@]}; do
       ONLY_ACTIVE_ARCH=NO \
       ENABLE_BITCODE=NO \
       ARCHS="${ARCHS}" \
+      VALID_ARCHS="${ARCHS}" \
       -sdk ${SDK} \
       build
   done
