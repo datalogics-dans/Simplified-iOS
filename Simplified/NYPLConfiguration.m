@@ -18,13 +18,14 @@
 + (void)initialize
 {
   if([NYPLConfiguration bugsnagEnabled]) {
-    [Bugsnag startBugsnagWithApiKey:[APIKeys bugsnagID]];
+    //[Bugsnag startBugsnagWithApiKey:[APIKeys bugsnagID]];
   }
 }
 
 + (BOOL)bugsnagEnabled
 {
-  return !(TARGET_OS_SIMULATOR || DEBUG);
+  //return !(TARGET_OS_SIMULATOR || DEBUG);
+    return false;
 }
 
 + (NSURL *)mainFeedURL
